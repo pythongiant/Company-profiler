@@ -39,10 +39,7 @@ def scrape_website(site):
                 keywords = tag.get('content')
 
         # Store metadata in dictionary
-        metadata['title'] = title
-        metadata['description'] = description
-        metadata['keywords'] = keywords
-        
+        text_content += f"title :{title} \n description : {description} \n keywords: {keywords}"
         links = soup.body.find_all('a')
         text_content += soup.get_text()
         urls = [link.get('href') for link in links if link.get('href') is not None]
@@ -78,7 +75,7 @@ def scrape_website(site):
     except Exception as e:
         print(e)
         st.error(f"Error while processing the website: {e}")
-    return linkedin, text_content[:token_limit*4], metadata
+    return linkedin, text_content[:token_limit*4]
 
 
 # Streamlit UI
