@@ -1,0 +1,4 @@
+BeautifulSoup4==4.12.2
+bs4==0.0.2
+streamlit==1.26.0
+openai==1.6.1
